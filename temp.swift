@@ -19,6 +19,7 @@ class A {
                 escape {
                     print(aa)
                 }
+                
             }
         }
     }
