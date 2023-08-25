@@ -16,6 +16,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
+    - name: Danger JS
+      uses: danger/danger-js@11.2.8
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
     - name: Report Custom Warning
       run: |
         brew install danger/tap/danger-swift
