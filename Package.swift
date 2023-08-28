@@ -10,9 +10,7 @@ let package = Package(
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
-        .library(
-            name: "ActionTest",
-            targets: ["ActionTest"]),
+        .library(name: "DangerDeps", type: .dynamic, targets: ["DangerDependencies"]), // dev
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -27,16 +25,19 @@ let package = Package(
             dependencies: [
                 // .product(name: "LeakDetectDangerPlugin", package: "DangerPlugin"),
             ]),
-        // .target(name: "Dangerfile", dependencies: ["Danger"], path: ".danger"),
-        .executableTarget(name: "DangerDependencies", dependencies: [
+        // .executableTarget(name: "Dangerfile", dependencies: [
+        //     .product(name: "Danger", package: "swift"),
+        //     .product(name: "LeakDetectDangerPlugin", package: "LeakDetect"),
+        // ], path: ".", sources: ["Dangerfile.swift"]),
+        .target(name: "DangerDependencies", dependencies: [
             .product(name: "Danger", package: "swift"),
             .product(name: "LeakDetectDangerPlugin", package: "LeakDetect"),
             // "Danger", "DangerPlugin"
             ]
         ), // dev
 
-        .testTarget(
-            name: "ActionTestTests",
-            dependencies: ["ActionTest"]),
+        // .testTarget(
+        //     name: "ActionTestTests",
+        //     dependencies: ["ActionTest"]),
     ]
 )
