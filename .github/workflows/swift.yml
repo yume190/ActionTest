@@ -20,7 +20,7 @@ jobs:
       run: |
         # npm install -g danger
         brew install danger/tap/danger-swift
-        swift run danger-swift ci
+        danger-swift ci
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
