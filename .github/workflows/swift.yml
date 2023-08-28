@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Report Custom Warning
       run: |
-        npm install -g danger
+        # npm install -g danger
         brew install danger/tap/danger-swift
         swift run danger-swift ci
       env:
