@@ -28,7 +28,7 @@ jobs:
     #           --sdk macosx \
     #           --reporter custom \
     #           --file Sources/ActionTest/ActionTest.swift
-    - uses: yume190/ActionTest@0.0.2
+    - uses: yume190/ActionTest@0.0.3
       with:
         sdk: macosx
         file: Sources/ActionTest/ActionTest.swift
