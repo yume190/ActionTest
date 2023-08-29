@@ -42,11 +42,11 @@ runs:
     - name: Download LeakDectect
       shell: bash
       run: |
-        TEMP_DIR=$(mktemp -d)
+        # TEMP_DIR=$(mktemp -d)
         curl -sSL \
           "https://github.com/yume190/LeakDetect/releases/download/0.0.4.4/leakDetect" \
-          -o "$TEMP_DIR/leakDetect"
-        chmod +x "$TEMP_DIR/leakDetect"
+          -o leakDetect
+        chmod +x leakDetect
 
     - name: Detect Single File
       if: ${{ inputs.sdk != '' }}
@@ -57,7 +57,7 @@ runs:
           issue: ${{ inputs.issue }}
       shell: bash
       run: |
-        $TEMP_DIR/leakDetect \
+        ./leakDetect \
           --reporter custom \
           --sdk ${{inputs.sdk}} \
           --file ${{inputs.file}}
