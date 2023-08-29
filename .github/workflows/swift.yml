@@ -26,7 +26,7 @@ jobs:
 
         chmod +x leakDetect
 
-        sha=${{github.sha}} repository=${{github.repository}} auth=$${{ secrets.GITHUB_TOKEN }} issue=${{ github.event.number }} ./leakDetect \
+        sha=${{github.sha}} repository=${{github.repository}} auth=${{ secrets.GITHUB_TOKEN }} issue=${{ github.event.number }} ./leakDetect \
               --sdk macosx \
               --file Sources/ActionTest/ActionTest.swift
         # ./entrypoint.sh ${{github.sha}} ${{github.repository}} ${{ secrets.GITHUB_TOKEN }} ${{ github.event.number }}
