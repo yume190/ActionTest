@@ -73,5 +73,5 @@ runs:
       run: |
         $TEMP_DIR/leakDetect \
           --reporter custom \
-          --module ${{input.module}} \
+          --module ${{inputs.module}} \
           --file ${{inputs.file}}
