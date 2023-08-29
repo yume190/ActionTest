@@ -71,7 +71,7 @@ runs:
           issue: ${{ inputs.issue }}
       shell: bash
       run: |
-        $TEMP_DIR/leakDetect \
+        ./leakDetect \
           --reporter custom \
           --module ${{inputs.module}} \
           --file ${{inputs.file}}
