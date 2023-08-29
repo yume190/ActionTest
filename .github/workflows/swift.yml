@@ -19,4 +19,12 @@ jobs:
     - name: Report Custom Warning
       run: |
         echo ${{github.sha}} ${{github.repository}} ${{ secrets.GITHUB_TOKEN }} ${{ github.event.number }}
-        ./entrypoint.sh ${{github.sha}} ${{github.repository}} ${{ secrets.GITHUB_TOKEN }} ${{ github.event.number }}
+
+        curl -sSL -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          "https://github.com/yume190/LeakDetect/releases/download/0.0.4.2/leakDetect" \
+          -o leakDetect
+
+        sha=${{github.sha}} repository=${{github.repository}} auth=$${{ secrets.GITHUB_TOKEN }} issue=${{ github.event.number }} ./leakDetect \
+              --sdk macosx \
+              --file Sources/ActionTest/ActionTest.swift
+        # ./entrypoint.sh ${{github.sha}} ${{github.repository}} ${{ secrets.GITHUB_TOKEN }} ${{ github.event.number }}
