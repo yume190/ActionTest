@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Report Custom Warning
       run: |
-        echo "${{toJson(github)}}""
+        # echo "${{toJson(github)}}"
 
         curl -sSL -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
           "https://github.com/yume190/LeakDetect/releases/download/0.0.4.2/leakDetect" \
@@ -26,7 +26,7 @@ jobs:
 
         chmod +x leakDetect
 
-        sha=${{github.sha}} repository=${{github.repository}} auth=${{ secrets.GITHUB_TOKEN }} issue=${{ github.event.number }} ./leakDetect \
+        sha=${{github.event.after}} repository=${{github.repository}} auth=${{ secrets.GITHUB_TOKEN }} issue=${{ github.event.number }} ./leakDetect \
               --sdk macosx \
               --reporter custom \
               --file Sources/ActionTest/ActionTest.swift
