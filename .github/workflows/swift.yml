@@ -24,6 +24,8 @@ jobs:
           "https://github.com/yume190/LeakDetect/releases/download/0.0.4.2/leakDetect" \
           -o leakDetect
 
+        chmod +x leakDetect
+
         sha=${{github.sha}} repository=${{github.repository}} auth=$${{ secrets.GITHUB_TOKEN }} issue=${{ github.event.number }} ./leakDetect \
               --sdk macosx \
               --file Sources/ActionTest/ActionTest.swift
