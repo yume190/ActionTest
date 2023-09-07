@@ -28,7 +28,7 @@ jobs:
     #           --sdk macosx \
     #           --reporter custom \
     #           --file Sources/ActionTest/ActionTest.swift
-    - uses: yume190/LeakDetect@0.0.5
+    - uses: yume190/LeakDetect@0.0.6
       with:
         sdk: macosx
         file: Sources/ActionTest/ActionTest.swift
